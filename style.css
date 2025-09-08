@@ -1,0 +1,544 @@
+/* FUENTES Y VARIABLES */
+:root {
+    --header-height: 3.5rem;
+
+    /* Colores */
+    --dark-blue: #0A2540;
+    --gold: #D4AF37;
+    --white: #FFFFFF;
+    --gray: #F8F9FA;
+    --text-color: #333;
+    --text-color-light: #666;
+
+    /* Tipografía */
+    --body-font: 'Lato', sans-serif;
+    --title-font: 'Montserrat', sans-serif;
+
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.75rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+}
+
+/* RESETEO Y ESTILOS BASE */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    font-family: var(--title-font);
+    color: var(--dark-blue);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1024px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.section {
+    padding: 4.5rem 0 2rem;
+}
+
+.section--gray {
+    background-color: var(--gray);
+}
+
+.section__title-center {
+    text-align: center;
+    font-size: var(--h2-font-size);
+    margin-bottom: 2rem;
+}
+
+.section__subtitle-center {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color-light);
+}
+
+/* BOTONES */
+.button {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--dark-blue);
+    padding: 1rem 1.75rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    transition: transform 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: transparent;
+    transition: background-color 0.4s;
+}
+.header.scrolled {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    color: var(--white);
+    font-weight: 700;
+    font-family: var(--title-font);
+}
+.header.scrolled .nav__logo,
+.header.scrolled .nav__toggle {
+    color: var(--dark-blue);
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav__link {
+    color: var(--white);
+    font-weight: 700;
+    transition: color 0.3s;
+}
+.header.scrolled .nav__link {
+    color: var(--dark-blue);
+}
+.nav__link:hover {
+    color: var(--gold);
+}
+
+.nav__toggle {
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+    display: none;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 37, 64, 0.7);
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero__title {
+    font-size: var(--h1-font-size);
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button--hero {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* STORES SECTION */
+.stores__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+/* Estilos para los logos estándar (Amazon, Temu) */
+.stores__logo {
+    height: 40px; /* Altura base para los logos pequeños */
+    width: auto;
+    max-height: 50px;
+    max-width: 100px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s, opacity 0.3s, transform 0.3s; /* Añade transform para el hover */
+}
+
+.stores__logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05); /* Pequeño zoom en hover */
+}
+
+
+/* Estilos para los logos GRANDES (Walmart, Shein, Reebok, Nike) */
+.stores__logowalmart,
+.stores__logoshein,
+.stores__logoreebook,
+.stores__logonike {
+    height: 120px; /* ¡Triple de 40px! */
+    width: auto;
+    max-height: 150px; /* Limite superior si quieres */
+    max-width: 200px; /* Limite superior si quieres */
+    object-fit: contain;
+    filter: grayscale(100%); /* Mantener el efecto de escala de grises si lo deseas */
+    opacity: 0.7; /* Mantener la opacidad si lo deseas */
+    transition: filter 0.3s, opacity 0.3s, transform 0.3s; /* Transiciones para hover */
+}
+
+/* Estilos de hover para los logos grandes */
+.stores__logowalmart:hover,
+.stores__logoshein:hover,
+.stores__logoreebook:hover,
+.stores__logonike:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05); /* Pequeño zoom en hover */
+}
+
+/* Ajuste para el contenedor de los logos si es necesario */
+.stores__container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinea verticalmente todos los logos */
+    flex-wrap: wrap;
+    gap: 3rem; /* Aumenta un poco el espacio entre logos para acomodar los grandes */
+    padding: 2rem 0; /* Un poco de padding para que no queden muy pegados */
+}
+
+/* Consideración Responsive para logos grandes en móviles */
+@media screen and (max-width: 768px) {
+    .stores__logowalmart,
+    .stores__logoshein,
+    .stores__logoreebook,
+    .stores__logonike {
+        height: 75px; /* Reducir a la mitad en móviles */
+        max-height: 90px;
+        max-width: 150px;
+    }
+}
+
+/* PROCESS SECTION */
+.process__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.process__icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.process__card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.process__card p {
+    color: var(--text-color-light);
+}
+
+/* FORM SECTION */
+.form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form__group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.form__group:first-child{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form input, .form textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+.form input:focus, .form textarea:focus {
+    outline: 2px solid var(--gold);
+    border-color: var(--gold);
+}
+
+.button--form {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* TESTIMONIALS */
+.testimonials__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.testimonial__card {
+    background: var(--gray);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border-left: 5px solid var(--gold);
+}
+.testimonial__card p {
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: var(--text-color-light);
+}
+.testimonial__card h4 {
+    text-align: right;
+    font-family: var(--body-font);
+}
+
+/* FAQ */
+.faq__container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.faq__item {
+    border-bottom: 1px solid #ddd;
+    padding: 1.5rem 0;
+}
+.faq__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.faq__question i {
+    transition: transform 0.3s;
+}
+.faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+.faq__answer p {
+    padding-top: 1rem;
+    color: var(--text-color-light);
+}
+.faq__item.active .faq__answer {
+    max-height: 200px;
+}
+.faq__item.active .faq__question i {
+    transform: rotate(180deg);
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+.footer__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.footer__content h3 {
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+.footer__link {
+    display: block;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+.footer__link:hover {
+    color: var(--gold);
+}
+.footer__social a {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+.footer__social a:hover {
+    color: var(--gold);
+}
+.footer__copy {
+    font-size: var(--small-font-size);
+    color: #aaa;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #25D366;
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    z-index: 100;
+    transition: transform 0.3s;
+}
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE DESIGN */
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    :root {
+        --h1-font-size: 2rem;
+        --h2-font-size: 1.5rem;
+    }
+    .nav__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 4rem 0;
+        transition: top 0.4s;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .nav__menu.show-menu {
+        top: var(--header-height);
+    }
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+    .nav__link {
+        color: var(--dark-blue);
+    }
+    .nav__toggle {
+        display: block;
+    }
+    .header.scrolled .nav__toggle {
+        color: var(--dark-blue);
+    }
+
+    .process__container, .testimonials__container, .footer__container {
+        grid-template-columns: 1fr;
+    }
+    .form__group:first-child {
+        grid-template-columns: 1fr;
+    }
+    .footer__container {
+        text-align: center;
+    }
+} /* <-- ESTA LLAVE CIERRA EL @MEDIA ANTERIOR. AHORA EL CÓDIGO NUEVO VA AFUERA */
+
+/* ======== ESTILOS SECCIÓN PUBLICIDAD DIGITAL (MÁS LLAMATIVA) ======== */
+.section--ads {
+    background-color: #E6F3F9; /* Un azul muy suave, más distintivo que el crema */
+    border-top: 1px solid #cceeff; /* Borde más visible */
+    border-bottom: 1px solid #cceeff;
+    padding-top: 5rem; /* Un poco más de espacio arriba */
+    padding-bottom: 5rem; /* Un poco más de espacio abajo */
+}
+
+.ads__platforms {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;    /* Centrado vertical */
+    gap: 5rem; /* Aumentamos aún más el espacio entre los íconos para los tamaños grandes */
+    margin-bottom: 4rem;
+    padding: 2rem 0; 
+}
+
+.ads__platform-icon {
+    font-size: 10rem; /* ¡Más grandes aún! Puedes ajustar entre 8rem y 12rem */
+    opacity: 0.85; 
+    transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease; /* Añadimos color a la transición */
+    color: var(--text-color-light); /* El color por defecto será un gris antes del hover o color específico */
+}
+
+.ads__platform-icon:hover {
+    transform: scale(1.1) translateY(-15px); /* Se levantan más y crecen */
+    opacity: 1; 
+}
+
+.ads__platforms .fa-instagram {
+    color: #E1306C; /* Color de Instagram */
+}
+.ads__platforms .fa-facebook {
+    color: #1877F2; /* Color de Facebook */
+}
+.ads__platforms .fa-tiktok {
+    color: #010101; /* Color de TikTok (negro) */
+}
+
+/* ======== AJUSTE RESPONSIVE SOLO PARA LA SECCIÓN DE PUBLICIDAD ======== */
+@media screen and (max-width: 768px) {
+    .ads__platforms {
+        flex-direction: column; /* Apila los iconos en móvil */
+        gap: 2rem; 
+    }
+    .ads__platform-icon {
+        font-size: 6rem; /* Reducimos drásticamente el tamaño en móvil */
+    }
+}
