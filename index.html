@@ -12,12 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
-</head>
+    
+    <link rel="icon" type="image/x-icon" href="wordmark-favicon.ico">
+    </head>
 <body>
 
     <header class="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">Personal Shopper Vzla</a>
+            <a href="#" class="nav__logo">
+    <img src="./logo.png" alt="Personal Shopper Venezuela Logo" class="nav__logo-img">
+</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li><a href="#inicio" class="nav__link">Inicio</a></li>
@@ -27,7 +31,7 @@
                     <li><a href="#faq" class="nav__link">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
-            <a href="#pedido" class="button button--header">Haz tu Pedido</a>
+            <!-- <a href="#pedido" class="button button--header">Haz tu Pedido</a> -->
             <div class="nav__toggle" id="nav-toggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -39,7 +43,7 @@
             <div class="hero__overlay"></div>
             <div class="hero__content container">
                 <h1 class="hero__title">Tus compras del mundo, en la puerta de tu casa.</h1>
-                <p class="hero__subtitle">Nos encargamos de comprar por ti en SHEIN, Amazon, Walmart y más. Paga fácil y seguro en bolívares.</p>
+                <p class="hero__subtitle">Nos encargamos de comprar por ti en SHEIN, Amazon, Walmart y más. Paga fácil, recibimos divisas, USDT, entre otros.</p>
                 <a href="#pedido" class="button button--hero">HAZ TU PEDIDO AHORA</a>
             </div>
         </section> 
@@ -47,12 +51,34 @@
         <section class="section container" id="tiendas">
             <h2 class="section__title-center">Compramos en tus tiendas favoritas</h2>
             <div class="stores__container">     
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="stores__logo">
-                <img src="./Walmart.png" alt="Walmart Logo" class="stores__logowalmart">
-                <img src="./shein.png" alt="Shein Logo" class="stores__logoshein">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Temu_logo.svg/2560px-Temu_logo.svg.png" alt="Temu Logo" class="stores__logo">
-                <img src="./rebook.png" alt="Reebok Logo" class="stores__logoreebook">
-                <img src="./nike.jpg" alt="Nike Logo" class="stores__logonike">
+                 <a href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="stores__logo">
+        </a>
+        
+        <a href="https://www.walmart.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./Walmart.png" alt="Walmart Logo" class="stores__logowalmart">
+        </a>
+        
+        <a href="https://us.shein.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./shein.png" alt="Shein Logo" class="stores__logoshein">
+        </a>
+        
+        <a href="https://www.temu.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Temu_logo.svg/2560px-Temu_logo.svg.png" alt="Temu Logo" class="stores__logo">
+        </a>
+        
+        <a href="https://www.reebok.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./rebook.png" alt="Reebok Logo" class="stores__logoreebook">
+        </a>
+        
+        <a href="https://www.nike.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./nike.jpg" alt="Nike Logo" class="stores__logonike">
+        </a>
+
+<a href="https://www.aliexpress.com/" target="_blank" rel="noopener noreferrer">
+    <img src="./aliexpress.png" alt="aliexpress" class="stores__logonike">
+</a>
+
             </div>
         </section>
 
@@ -67,7 +93,7 @@
                 <div class="process__card">
                     <i class="fa-solid fa-money-bill-wave process__icon"></i>
                     <h3>2. Cotiza y Paga</h3>
-                    <p>Te enviamos la cotización en bolívares. Realiza tu pago por transferencia o pago móvil.</p>
+                    <p>Te enviamos la cotización en divisas o USDT. Realiza tu pago.</p>
                 </div>
                 <div class="process__card">
                     <i class="fa-solid fa-box-open process__icon"></i>
@@ -102,8 +128,8 @@
             </div>
             <div class="process__card">
                 <i class="fa-solid fa-rocket process__icon"></i>
-                <h3>3. Paga en Bolívares y Lanza</h3>
-                <p>Pagas el equivalente en bolívares y nosotros abonamos el saldo a tu cuenta publicitaria. ¡Listo para vender!</p>
+                <h3>3. Paga en Divisas o USDT y Lanza</h3>
+                <p>Pagas en USDT o divisas y nosotros abonamos el saldo a tu cuenta publicitaria. ¡Listo para vender!</p>
             </div>
         </div>
 
@@ -139,7 +165,7 @@
             <h2 class="section__title-center">Nuestros clientes confían en nosotros</h2>
             <div class="testimonials__container">
                 <div class="testimonial__card">
-                    <p>"¡Excelente servicio! Recibí mi pedido de Amazon rapidísimo y sin complicaciones. Pagar en bolívares fue lo mejor."</p>
+                    <p>"¡Excelente servicio! Recibí mi pedido de Amazon rapidísimo y sin complicaciones."</p>
                     <h4>- María G., Caracas</h4>
                 </div>
                 <div class="testimonial__card">
@@ -159,11 +185,11 @@
                 <div class="faq__container">
                     <div class="faq__item">
                         <div class="faq__question">
-                            <h3>¿Cómo funciona el pago en bolívares?</h3>
+                            <h3>¿Cómo funciona el pago?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq__answer">
-                            <p>Aceptamos transferencias bancarias y Pago Móvil. La tasa de cambio utilizada será la vigente al momento de confirmar tu cotización para garantizar transparencia.</p>
+                            <p>Realiza tu pedido y confirma el pago, envianos el comprobante para garantizar la transparencia.</p>
                         </div>
                     </div>
                     <div class="faq__item">

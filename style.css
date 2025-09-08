@@ -151,7 +151,37 @@ img {
     cursor: pointer;
     display: none;
 }
+/* HEADER */
+/* ... tus estilos existentes del header ... */
 
+.nav__logo-img {
+    height: 95px; /* Ajusta este valor si quieres que el logo sea más grande o más pequeño */
+    width: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Asegura que la imagen se vea completa sin recortarse */
+    transition: transform 0.3s ease; /* Para un efecto sutil al pasar el cursor */
+}
+
+.nav__logo-img:hover {
+    transform: scale(1.05); /* Un pequeño zoom al pasar el cursor */
+}
+
+/* Si tu logo tiene un fondo, el color de la nav no le afectará,
+   pero si quieres que el logo sea un poco más grande cuando el header hace scroll, puedes añadir: */
+.header.scrolled .nav__logo-img {
+    height: 50px; /* Un poco más grande cuando el header está "scrolled" */
+}
+
+/* También es buena idea quitar el color blanco que el nav__logo tenía antes */
+.nav__logo {
+    color: transparent; /* Hace que el texto del enlace sea transparente para que solo se vea la imagen */
+}
+
+/* Asegúrate de que el logo se vea bien en dispositivos móviles si el header cambia */
+@media screen and (max-width: 768px) {
+    .nav__logo-img {
+        height: 40px; /* Ajusta el tamaño del logo para móviles si es necesario */
+    }
+}
 /* HERO SECTION */
 .hero {
     height: 100vh;
